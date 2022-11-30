@@ -1,0 +1,20 @@
+
+#Describe what containers you want to create
+services:
+  #container one
+  database-name-generator:
+    #configuration for the container
+    image: 'postgres:latest'
+    #allow you to accept request from the internet
+    ports:
+      - "5432:5432"
+    #local port / virtual port
+
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: postgres
+
+    #creates a real world physical location
+    volumes:
+      - ./database:/var/lib/postgresql/data
